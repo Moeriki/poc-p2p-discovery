@@ -1,0 +1,8 @@
+{
+  "name": "poc-p2p-discovery",
+  "version": "1.0.0",
+  "repository": "git@github.com:Moeriki/poc-p2p-discovery.git",
+  "author": "Dieter Luypaert <dieterluypaert@gmail.com>",
+  "private": true,
+  "workspaces": ["client", "server"]
+}
