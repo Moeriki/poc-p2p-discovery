@@ -4,5 +4,16 @@
   "repository": "git@github.com:Moeriki/poc-p2p-discovery.git",
   "author": "Dieter Luypaert <dieterluypaert@gmail.com>",
   "private": true,
-  "workspaces": ["client", "server"]
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "devDependencies": {
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "prettier": "^1.18.2"
+  }
 }
