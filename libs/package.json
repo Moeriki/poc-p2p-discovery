@@ -2,5 +2,9 @@
   "name": "poc-p2p-libs",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "simple-peer": "^9.6.0"
+  }
 }
