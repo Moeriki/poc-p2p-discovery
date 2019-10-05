@@ -8,18 +8,21 @@ export function detectNetwork({ wrtc = undefined } = {}) {
     peer.on('error', reject);
     peer.on('signal', (signal) => {
       if (signal.candidate) {
-        const { groups } = signal.candidate.candidate.match(
-          /\b(?<ip>\d+\.\d+\.\d+\.\d+) \d+ typ (?<type>host|srflx)/,
+        const match = signal.candidate.candidate.match(
+          /\b(\d+\.\d+\.\d+\.\d+) \d+ typ (host|srflx)/,
         );
-        if (groups.type === 'host') {
-          internal = groups.ip;
-        }
-        if (groups.type === 'srflx') {
-          external = groups.ip;
-        }
-        if (external && internal) {
-          resolve({ external, internal });
-          peer.destroy();
+        if (match && match.length >= 3) {
+          const [, ip, type] = match;
+          if (type === 'host') {
+            internal = ip;
+          }
+          if (type === 'srflx') {
+            external = ip;
+          }
+          if (external && internal) {
+            resolve({ external, internal });
+            peer.destroy();
+          }
         }
       }
     });
